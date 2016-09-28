@@ -1,14 +1,15 @@
 class Engine {
+
     constructor(debug) {
         this.stats = new Stats();
 
-        if(debug){
+        if (debug) {
             this.debug = true;
             document.body.appendChild(this.stats.dom);
         }
 
         this.lastUpdate = Date.now();
-        this.objects = [];
+        this.screens = [];
         requestAnimationFrame(this.loop.bind(this));
     }
 
@@ -23,11 +24,29 @@ class Engine {
     }
 
     update(delta) {
-        this.objects.forEach((obj) => {obj.update(delta)});
+        for (var i = this.screens.length - 1; i >= 0; i--) {
+            this.screens[i].update(delta);
+            if (!this.screens[i].transparent && this.screens[i].state == ScreenState.On) {
+                break;
+            }
+        }
     }
 
     render() {
-        this.objects.forEach((obj) => {obj.render()});
+        for (var i = this.screens.length - 1; i >= 0; i--) {
+            this.screens[i].render();
+            if (!this.screens[i].transparent && this.screens[i].state == ScreenState.On) {
+                break;
+            }
+        }
+    }
+
+    pushScreen(screen) {
+        this.screens.push(screen);
+    }
+
+    popScreen() {
+        this.screens.state = ScreenState.TransitionOff;
     }
 }
 
