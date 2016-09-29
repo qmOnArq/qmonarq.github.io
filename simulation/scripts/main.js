@@ -10,6 +10,9 @@ class Engine {
 
         this.lastUpdate = Date.now();
         this.screens = [];
+        this.camera = new Camera();
+        this.canvas = document.getElementById("canvas");
+        this.ctx = this.canvas.getContext('2d');
         requestAnimationFrame(this.loop.bind(this));
     }
 

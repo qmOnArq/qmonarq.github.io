@@ -11,6 +11,8 @@ class Screen {
         this.engine = engine;
         this.transparent = false;
         this.progress = 0;
+        this.alpha = 1;
+        this.objects = [];
     }
 
     update(delta) {
@@ -51,10 +53,15 @@ class Screen {
                 }
                 break;
         }
+
+        this.objects.forEach(obj => obj.update(delta));
     }
 
     render() {
-
+        var originalAlpha = this.engine.ctx.globalAlpha;
+        this.engine.ctx.globalAlpha = this.alpha;
+        this.objects.forEach(obj => obj.render());
+        this.engine.ctx.globalAlpha = originalAlpha;
     }
 
 }
