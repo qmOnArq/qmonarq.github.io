@@ -2,11 +2,14 @@ class MainScreen extends Screen {
 
     constructor(engine) {
         super(engine);
-        this.objects.push(new Sprite(this, Assets['buildings'], 'bazar', 100, 200));
-        this.objects.push(new Sprite(this, Assets['buildings'], 'bazar', 100, 400, false))
-        this.objects.push(new Sprite(this, Assets['buildings'], 'bazar', 400, 200))
-        this.objects.push(new Sprite(this, Assets['buildings'], 'bazar', 400, 400, false))
-        this.objects[2].scale = 2
-        this.objects[3].scale = 2
+        var obj;
+        for (var i = 0; i < 8; i++) {
+            obj = new Sprite(this, Assets['buildings'], 'bazar', 100 + 100 * Math.pow(i, 1.3), 200);
+            this.objects.push(obj);
+            obj.scale = 0.4 + 0.2 * i;
+            obj = new Sprite(this, Assets['buildings'], 'bazar', 100 + 100 * Math.pow(i, 1.3), 400, false);
+            this.objects.push(obj);
+            obj.scale = 0.4 + 0.2 * i;
+        }
     }
 }
