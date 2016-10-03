@@ -12,4 +12,5 @@ class MainScreen extends Screen {
             obj.scale = 0.4 + 0.2 * i;
         }
     }
+    
 }

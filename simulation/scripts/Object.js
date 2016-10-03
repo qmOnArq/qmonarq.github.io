@@ -7,12 +7,12 @@ class Object {
         this.ctx = this.engine.ctx;
     }
 
-    render() {
+    update(delta) {
 
     }
 
-    update(delta) {
-        
+    render() {
+
     }
 
 }
