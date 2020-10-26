@@ -45,6 +45,21 @@
                         titleFontSize: 16,
                         bodyFontSize: 14,
                         callbacks: {
+                            title: (tooltipItem) => {
+                                const item = data.find(d => d.name === tooltipItem[0].xLabel);
+                                let date = ' ';
+
+                                if (item) {
+                                    const d = new Date(item.time);
+                                    const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+                                    const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+                                    const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+                                    date = ` (${da} ${mo} ${ye})`;
+                                }
+
+                                return tooltipItem[0].xLabel + date;
+                            },
+
                             labelColor: (tooltipItem, chart) => {
                                 return {
                                     borderColor: 'rgb(255,46,0)',
