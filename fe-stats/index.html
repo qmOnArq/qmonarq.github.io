@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            background: #262626;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        fetch('output.json').then(response => response.json()).then(data => {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            Chart.defaults.global.defaultFontColor = 'rgb(5,153,176)';
+            const chart = new Chart(ctx, {
+                type: 'bar',
+
+                data: {
+                    labels: data.map(item => item.name),
+                    datasets: [{
+                        label: 'any',
+                        backgroundColor: 'rgb(255,46,0)',
+                        borderColor: 'rgb(255,46,0)',
+                        data: data.map(item => item.stats.anyCount),
+                    }, {
+                        label: 'unknown',
+                        backgroundColor: 'rgb(164,189,10)',
+                        borderColor: 'rgb(164,189,10)',
+                        data: data.map(item => item.stats.unknownCount),
+                    }]
+                },
+
+                options: {
+                    tooltips: {
+                        titleFontSize: 16,
+                        bodyFontSize: 14,
+                        callbacks: {
+                            labelColor: (tooltipItem, chart) => {
+                                return {
+                                    borderColor: 'rgb(255,46,0)',
+                                    backgroundColor: 'rgb(255,46,0)'
+                                };
+                            },
+
+                            label: (tooltipItem, tooltipData) => {
+                                const item = data.find(d => d.name === tooltipItem.xLabel);
+                                return item ? `any: ${item.stats.anyCount}` : `any: ???`;
+                            },
+
+                            afterLabel: (tooltipItem, tooltipData) => {
+                                const item = data.find(d => d.name === tooltipItem.xLabel);
+                                return item ? `unknown: ${item.stats.unknownCount}` : `unknown: ???`;
+                            },
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+<!--"rgb(54,54,54)", "rgb(5,153,176)", "rgb(164,189,10)", "rgb(255,166,21)", "rgb(255,46,0)"-->
