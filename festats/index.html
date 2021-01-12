@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <title></title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Frontend Stats</title>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
     <style>
         html,
         body {
@@ -13,72 +13,124 @@
         html {
             background: #262626;
         }
+
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <canvas id="myChart"></canvas>
+    <div id="chart"></div>
     <script>
         fetch('output.json').then(response => response.json()).then(data => {
-            const ctx = document.getElementById('myChart').getContext('2d');
-            Chart.defaults.global.defaultFontColor = 'rgb(5,153,176)';
-            const chart = new Chart(ctx, {
-                type: 'bar',
-
-                data: {
-                    labels: data.map(item => item.name),
-                    datasets: [{
-                        label: 'any',
-                        backgroundColor: 'rgb(255,46,0)',
-                        borderColor: 'rgb(255,46,0)',
-                        data: data.map(item => item.stats.anyCount),
-                    }, {
-                        label: 'unknown',
-                        backgroundColor: 'rgb(164,189,10)',
-                        borderColor: 'rgb(164,189,10)',
-                        data: data.map(item => item.stats.unknownCount),
-                    }]
+            Highcharts.chart('chart', {
+                title: {
+                    text: 'Frontend Stats'
                 },
+                yAxis: [{
+                    title: {
+                        text: ''
+                    }
+                }, {
+                    title: {
+                        text: ''
+                    },
+                    opposite: true,
+                }],
 
-                options: {
-                    tooltips: {
-                        titleFontSize: 16,
-                        bodyFontSize: 14,
-                        callbacks: {
-                            title: (tooltipItem) => {
-                                const item = data.find(d => d.name === tooltipItem[0].xLabel);
-                                let date = ' ';
-
-                                if (item) {
-                                    const d = new Date(item.time);
-                                    const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-                                    const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
-                                    const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-                                    date = ` (${da} ${mo} ${ye})`;
-                                }
-
-                                return tooltipItem[0].xLabel + date;
-                            },
-
-                            labelColor: (tooltipItem, chart) => {
-                                return {
-                                    borderColor: 'rgb(255,46,0)',
-                                    backgroundColor: 'rgb(255,46,0)'
-                                };
-                            },
-
-                            label: (tooltipItem, tooltipData) => {
-                                const item = data.find(d => d.name === tooltipItem.xLabel);
-                                return item ? `any: ${item.stats.anyCount}` : `any: ???`;
-                            },
-
-                            afterLabel: (tooltipItem, tooltipData) => {
-                                const item = data.find(d => d.name === tooltipItem.xLabel);
-                                return item ? `unknown: ${item.stats.unknownCount}` : `unknown: ???`;
-                            },
+                xAxis: {
+                    labels: {
+                        formatter: function () {
+                            return data[this.pos].name;
                         }
                     }
-                }
+                },
+
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                },
+
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: true
+                        },
+                        pointStart: 0
+                    }
+                },
+
+                tooltip: {
+                    shared: true,
+                    useHTML: true,
+                    formatter: function () {
+                        const title = data[this.x].name
+                        const d = new Date(data[this.x].time);
+                        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+                        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+                        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+                        date = ` (${da} ${mo} ${ye})`;
+
+                        return this.points.reduce(function (s, point) {
+                            return s + '<br/>' + 
+                                `<div style="background: ${point.color}; width: 10px; height: 10px; display: inline-block; border-radius: 50%; margin-right: 5px;"></div>` + 
+                                point.series.name + ': ' + point.y;
+                        }, '<b>' + title + '</b> ' + date);
+                    },
+                },
+
+                series: [{
+                    name: 'Any',
+                    data: data.map(x => x.stats.anyCount)
+                }, {
+                    name: 'Unknown',
+                    data: data.map(x => x.stats.unknownCount)
+                }, {
+                    name: 'Interface',
+                    data: data.map(x => x.stats.interfaceCount)
+                }, {
+                    name: 'Type',
+                    data: data.map(x => x.stats.typeCount)
+                }, {
+                    name: 'TS lines',
+                    data: data.map(x => x.stats.tsLines),
+                    yAxis: 1,
+                    visible: false,
+                }, {
+                    name: 'JS lines',
+                    data: data.map(x => x.stats.jsLines),
+                    yAxis: 1,
+                    visible: false,
+                }, {
+                    name: 'LESS lines',
+                    data: data.map(x => x.stats.lessLines),
+                    yAxis: 1,
+                    visible: false,
+                }, {
+                    name: 'SCSS lines',
+                    data: data.map(x => x.stats.scssLines),
+                    yAxis: 1,
+                    visible: false,
+                }, {
+                    name: 'TS files',
+                    data: data.map(x => x.stats.tsFiles),
+                    visible: false,
+                }, {
+                    name: 'JS files',
+                    data: data.map(x => x.stats.jsFiles),
+                    visible: false,
+                }, {
+                    name: 'LESS files',
+                    data: data.map(x => x.stats.lessFiles),
+                    visible: false,
+                }, {
+                    name: 'SCSS files',
+                    data: data.map(x => x.stats.scssFiles),
+                    visible: false,
+                }],
             });
         });
     </script>
