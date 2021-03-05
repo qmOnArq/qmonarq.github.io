@@ -43,6 +43,7 @@
                 xAxis: {
                     labels: {
                         formatter: function () {
+                            if (!data[this.pos]) return '';
                             return data[this.pos].name;
                         }
                     }
