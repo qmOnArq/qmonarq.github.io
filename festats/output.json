@@ -2448,21 +2448,147 @@
     }
   },
   {
-    "name": "master",
-    "time": "2021-04-09T10:55:49+02:00",
+    "name": "v1.187.0",
+    "time": "2021-04-20T15:48:22+02:00",
     "stats": {
-      "unknownCount": 436,
-      "anyCount": 1432,
-      "interfaceCount": 1512,
-      "typeCount": 926,
-      "tsLines": 342990,
+      "unknownCount": 439,
+      "anyCount": 1429,
+      "interfaceCount": 1517,
+      "typeCount": 927,
+      "tsLines": 343807,
       "jsLines": 9056,
-      "lessLines": 21509,
-      "scssLines": 28404,
-      "tsFiles": 3528,
+      "lessLines": 20074,
+      "scssLines": 29045,
+      "tsFiles": 3540,
       "jsFiles": 29,
-      "lessFiles": 320,
-      "scssFiles": 426
+      "lessFiles": 299,
+      "scssFiles": 440
+    }
+  },
+  {
+    "name": "v1.188.0",
+    "time": "2021-05-04T12:35:56+00:00",
+    "stats": {
+      "unknownCount": 463,
+      "anyCount": 1303,
+      "interfaceCount": 1527,
+      "typeCount": 928,
+      "tsLines": 344971,
+      "jsLines": 9056,
+      "lessLines": 20095,
+      "scssLines": 29210,
+      "tsFiles": 3554,
+      "jsFiles": 29,
+      "lessFiles": 298,
+      "scssFiles": 442
+    }
+  },
+  {
+    "name": "v1.189.0",
+    "time": "2021-05-21T09:57:05+02:00",
+    "stats": {
+      "unknownCount": 472,
+      "anyCount": 1271,
+      "interfaceCount": 1545,
+      "typeCount": 933,
+      "tsLines": 347618,
+      "jsLines": 9457,
+      "lessLines": 20026,
+      "scssLines": 29632,
+      "tsFiles": 3571,
+      "jsFiles": 29,
+      "lessFiles": 295,
+      "scssFiles": 443
+    }
+  },
+  {
+    "name": "v1.190.0",
+    "time": "2021-06-01T11:19:45+00:00",
+    "stats": {
+      "unknownCount": 495,
+      "anyCount": 1145,
+      "interfaceCount": 1563,
+      "typeCount": 938,
+      "tsLines": 349609,
+      "jsLines": 9457,
+      "lessLines": 18789,
+      "scssLines": 30233,
+      "tsFiles": 3603,
+      "jsFiles": 29,
+      "lessFiles": 281,
+      "scssFiles": 454
+    }
+  },
+  {
+    "name": "v1.191.0",
+    "time": "2021-06-15T13:32:48+02:00",
+    "stats": {
+      "unknownCount": 500,
+      "anyCount": 1048,
+      "interfaceCount": 1574,
+      "typeCount": 951,
+      "tsLines": 352468,
+      "jsLines": 9457,
+      "lessLines": 18788,
+      "scssLines": 30382,
+      "tsFiles": 3631,
+      "jsFiles": 29,
+      "lessFiles": 279,
+      "scssFiles": 457
+    }
+  },
+  {
+    "name": "v1.192.0",
+    "time": "2021-06-28T16:19:21+02:00",
+    "stats": {
+      "unknownCount": 503,
+      "anyCount": 1048,
+      "interfaceCount": 1586,
+      "typeCount": 952,
+      "tsLines": 354214,
+      "jsLines": 9457,
+      "lessLines": 18694,
+      "scssLines": 30689,
+      "tsFiles": 3648,
+      "jsFiles": 29,
+      "lessFiles": 277,
+      "scssFiles": 462
+    }
+  },
+  {
+    "name": "v1.193.0",
+    "time": "2021-07-12T13:40:03+00:00",
+    "stats": {
+      "unknownCount": 584,
+      "anyCount": 833,
+      "interfaceCount": 1586,
+      "typeCount": 955,
+      "tsLines": 354689,
+      "jsLines": 9457,
+      "lessLines": 16891,
+      "scssLines": 31784,
+      "tsFiles": 3651,
+      "jsFiles": 29,
+      "lessFiles": 253,
+      "scssFiles": 470
+    }
+  },
+  {
+    "name": "master",
+    "time": "2021-07-16T15:09:00+00:00",
+    "stats": {
+      "unknownCount": 590,
+      "anyCount": 826,
+      "interfaceCount": 1587,
+      "typeCount": 957,
+      "tsLines": 355722,
+      "jsLines": 9457,
+      "lessLines": 16467,
+      "scssLines": 31547,
+      "tsFiles": 3664,
+      "jsFiles": 29,
+      "lessFiles": 248,
+      "scssFiles": 447
     }
   }
 ]
