@@ -84,8 +84,12 @@
                 },
 
                 series: [{
-                    name: 'Any',
-                    data: data.map(x => x.stats.anyCount)
+                    name: 'Any (TSLint)',
+                    data: data.map(x => x.stats.totalAnyCount)
+                }, {
+                    name: 'Any (Regex)',
+                    data: data.map(x => x.stats.legacyAnyCount),
+                    visible: false,
                 }, {
                     name: 'Unknown',
                     data: data.map(x => x.stats.unknownCount)
