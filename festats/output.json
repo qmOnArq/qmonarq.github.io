@@ -2717,41 +2717,117 @@
     }
   },
   {
-    "name": "v1.194",
-    "time": "2021-07-26T13:14:08+00:00",
+    "name": "v1.194.0",
+    "time": "2021-07-28T13:23:48+02:00",
     "stats": {
       "totalAnyCount": 845,
       "unknownCount": 590,
       "legacyAnyCount": 827,
       "interfaceCount": 1590,
       "typeCount": 957,
-      "tsLines": 356035,
+      "tsLines": 356058,
       "jsLines": 9340,
-      "lessLines": 14701,
-      "scssLines": 31171,
-      "tsFiles": 3669,
+      "lessLines": 14709,
+      "scssLines": 31177,
+      "tsFiles": 3670,
       "jsFiles": 14,
       "lessFiles": 246,
       "scssFiles": 445
     }
   },
   {
-    "name": "master",
-    "time": "2021-07-26T14:28:13+00:00",
+    "name": "v1.195.0",
+    "time": "2021-08-10T11:42:32+00:00",
     "stats": {
-      "totalAnyCount": 462,
-      "unknownCount": 695,
-      "legacyAnyCount": 452,
-      "interfaceCount": 1600,
-      "typeCount": 960,
-      "tsLines": 356701,
+      "totalAnyCount": 260,
+      "unknownCount": 778,
+      "legacyAnyCount": 253,
+      "interfaceCount": 1608,
+      "typeCount": 969,
+      "tsLines": 358175,
       "jsLines": 9340,
-      "lessLines": 14700,
-      "scssLines": 31175,
-      "tsFiles": 3678,
+      "lessLines": 14140,
+      "scssLines": 31386,
+      "tsFiles": 3693,
       "jsFiles": 14,
-      "lessFiles": 246,
-      "scssFiles": 446
+      "lessFiles": 222,
+      "scssFiles": 456
+    }
+  },
+  {
+    "name": "v1.196.0",
+    "time": "2021-08-20T13:26:38+00:00",
+    "stats": {
+      "totalAnyCount": 191,
+      "unknownCount": 791,
+      "legacyAnyCount": 188,
+      "interfaceCount": 1608,
+      "typeCount": 974,
+      "tsLines": 357620,
+      "jsLines": 9340,
+      "lessLines": 12824,
+      "scssLines": 31446,
+      "tsFiles": 3692,
+      "jsFiles": 14,
+      "lessFiles": 215,
+      "scssFiles": 457
+    }
+  },
+  {
+    "name": "v1.197.0",
+    "time": "2021-09-09T10:39:00+00:00",
+    "stats": {
+      "totalAnyCount": 191,
+      "unknownCount": 791,
+      "legacyAnyCount": 188,
+      "interfaceCount": 1614,
+      "typeCount": 975,
+      "tsLines": 358600,
+      "jsLines": 9340,
+      "lessLines": 12114,
+      "scssLines": 31558,
+      "tsFiles": 3703,
+      "jsFiles": 14,
+      "lessFiles": 208,
+      "scssFiles": 461
+    }
+  },
+  {
+    "name": "v1.198",
+    "time": "2021-09-24T11:25:52+00:00",
+    "stats": {
+      "totalAnyCount": 145,
+      "unknownCount": 811,
+      "legacyAnyCount": 142,
+      "interfaceCount": 1619,
+      "typeCount": 977,
+      "tsLines": 360080,
+      "jsLines": 9340,
+      "lessLines": 12033,
+      "scssLines": 31611,
+      "tsFiles": 3718,
+      "jsFiles": 14,
+      "lessFiles": 208,
+      "scssFiles": 465
+    }
+  },
+  {
+    "name": "master",
+    "time": "2021-09-24T13:39:24+02:00",
+    "stats": {
+      "totalAnyCount": 70,
+      "unknownCount": 823,
+      "legacyAnyCount": 75,
+      "interfaceCount": 1631,
+      "typeCount": 987,
+      "tsLines": 361498,
+      "jsLines": 9340,
+      "lessLines": 10304,
+      "scssLines": 31427,
+      "tsFiles": 3730,
+      "jsFiles": 14,
+      "lessFiles": 193,
+      "scssFiles": 465
     }
   }
 ]
