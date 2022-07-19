@@ -633,9 +633,9 @@
 		const customer = localStorage.getItem('exp_customer');
 
 		if (!target || !projectId) {
-			const newTarget = prompt('Enter target');
-			const newProjectId = prompt('Enter project id');
-			const newCustomer = prompt('Enter customer id (optional)');
+			const newTarget = prompt('Enter target') || '';
+			const newProjectId = prompt('Enter project id') || '';
+			const newCustomer = prompt('Enter customer id (optional)') || '';
 
 			localStorage.setItem('exp_target', newTarget);
 			localStorage.setItem('exp_project_id', newProjectId);
