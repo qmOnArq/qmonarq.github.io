@@ -633,7 +633,7 @@
 			target: "https://api-analytics.master.gdev.exponea.com",
 			token: "17876e84-dd40-11ea-895c-02fe12965b57",
 			new_experiments: { mode: "sync" },
-			customer: document.location.hash || null,
+			customer: document.location.hash || undefined,
 		});
 		exponea.start();
 	</script>
